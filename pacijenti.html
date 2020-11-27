@@ -4,8 +4,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script
+    src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous"></script>
 </head>
 <body>
-    <div></div>
+    <h1>Pacijenti</h1>
+    <!-- Meni -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Početna</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pregledi.html">Pregledi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pacijenti.html">Kartoni pacijenata</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="doktori.html">Doktori</a>
+                </li>
+            </ul>
+            </div>
+            </nav>
+<form action="">
+<!--Deo za izbor akcije-->
+<div id="odabir_akcije">
+    <input type="radio" name="odabir_akcije" id="prikazi" value="prikazi">
+    <label for="radio_prikazi">Prikaži sve pacijente</label>
+    <input type="radio" name="odabir_akcije" id="kreiraj" value="kreiraj">
+    <label for="radio_kreiraj">Kreiraj novi karton pacijenta</label>
+    <input type="radio" name="odabir_akcije" id="izmeni" value="izmeni">
+    <label for="radio_izmeni">Izmeni karton pacijenta</label>
+    <input type="radio" name="odabir_akcije" id="obrisi" value="obrisi">
+    <label for="radio_obrisi">Obriši karton pacijenta</label>
+</div>
+
+<!--Deo za prikaz svih pacijenata-->
+<pre id="get_odgovor"></pre>
+
+<!-- Deo za kreiranje novog kartona pacijenta-->
+<div id="pacijenti_post">
+    <input type="text" name="ime" id="ime" placeholder="Unesite ime">
+    <input type="text" name="prezime" id="prezime" placeholder="Unesite prezime">
+    <input type="text" name="jmbg" id="jmbg" placeholder="Unesite JMBG">
+    
+    <div id="dugme_za_kreiranje">
+        <button type="button" id="kreiraj">Kreiraj</button>
+    </div>
+</div>
+
+ <!-- Deo za izmenu kartona pacijenata-->
+<div id="pacijenti_put">
+    <input type="text" name="ime_pretrazivanje" id="ime_pretrazivanje" placeholder="Unesite ime i prezime pacijenta">
+    <input type="text" name="ime_put" placeholder="Unesite novo ime">
+    <input type="text" name="prezime_put" placeholder="Unesite novo prezime">
+    <input type="text" name="jmbg_put" placeholder="Unesite novi JMBG">
+    
+    <div id="dugme_za_izmenu">
+        <button type="button" id="izmena">Izmeni</button>
+    </div>
+</div>
+
+<!-- Deo za brisanje kartona pacijenta-->
+<div id="pacijenti_delete">
+        <input type="text" name="brisanje" id="brisanje" placeholder="Unesite ime i prezime pacijenta čiji karton želite da obrišete">
+        <div id="dugme_za_brisanje">
+        <button type="button" id="obrisi">Obriši</button>
+    </div>
+</div>
+
+</form>
 </body>
 </html>
+<script>
+
+    var blokovi = ["pacijenti_post","pacijenti_put", "pacijenti_delete"];
+    
+    function skloniBlokove(){
+        for(const blok of blokovi){
+            document.getElementById(blok).style.display="none";
+            }
+    };
+    
+    skloniBlokove();
+    $("input[name=odabir_akcije]").on("click", prikaziBlok);
+    
+    
+    function prikaziBlok(){
+        switch($("input[name=odabir_akcije]:checked")[0].id){
+                case "prikazi":
+                    skloniBlokove();
+                    document.getElementById("get_odgovor").innerHTML="";
+                    break;
+                case "kreiraj":
+                    skloniBlokove();
+                    document.getElementById(blokovi[0]).style.display="block";    
+                    break;
+                case "izmeni":
+                    skloniBlokove();
+                    document.getElementById(blokovi[1]).style.display="block";
+                    break;
+                case "obrisi":
+                    skloniBlokove();
+                    document.getElementById(blokovi[2]).style.display="block";
+                    break;
+                default:
+                    break;
+            }
+               
+        }
+    </script>
