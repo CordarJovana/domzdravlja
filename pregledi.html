@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Pregledi</h1>
+    <form action="">
+        <div id="odabir_akcije">
+            <input type="radio" name="odabir_akcije" id="prikazi" value="prikazi">
+            <label for="radio_prikazi">Prikaži sve preglede</label>
+            <input type="radio" name="odabir_akcije" id="kreiraj" value="kreiraj">
+            <label for="radio_kreiraj">Zakaži novi pregled</label>
+        </div>
+    <!--Deo za prikaz svih pregeda-->
+
+    <div id="search_prema_datumima">
+        <input type="datetime" name="pretraga" id="pretraga" placeholder="Unesite datum kako biste suzili pretragu">
+
+    </div>
+   <pre id="get_odgovor"></pre>
+
+
+<!--Deo za unos novog pregleda-->
+<div id="pacijent_post">
+    <input type="datetime-local" id="datum_pregleda" name="datum_pregleda">
+    <br>
+    <textarea name="tekst_simptoma" id="tekst_simptoma" cols="30" rows="10" placeholder="Unesite simptome pacijenta"></textarea>
+    <br>
+<!--ovaj deo sigurno treba popraviti pa pogledati vežbe 3-->
+    <label for="doktor_odabir">Doktori:</label>
+    <select name="doktor_odabir" id="doktor_odabir">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+    <label for="pacijent_odabir">Pacijent:</label>
+    <select name="pacijent_odabir" id="pacjent_odabir">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+    <div id="dugme_za_kreiranje">
+        <button type="button" id="kreiraj">Zakaži pregled</button>
+    </div>
+</div>
+</form>
+
+</body>
+</html>
+<script>
+    var blokovi = ["search_prema_datumima","pacijent_post"];
+
+    function skloniBlokove(){
+    for(const blok of blokovi){
+        document.getElementById(blok).style.display="none";
+    }
+};
+
+skloniBlokove();
+document.getElementById("odabir_akcije").addEventListener("click", prikaziBlok);
+
+
+function prikaziBlok(){
+    switch(document.getElementById("odabirakcije").clic){
+            case "prikazi":
+                skloniBlokove();
+                document.getElementById("get_odgovor").innerHTML="";
+                document.getElementById(blokovi[0]).style.display="block";
+                break;
+            case "kreiraj":
+                skloniBlokove();
+                document.getElementById(blokovi[1]).style.display="block";
+                    
+                break;
+                default:
+            break;
+        }
+           
+    }
+</script>
