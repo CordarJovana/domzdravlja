@@ -1,4 +1,4 @@
-
+/*Osnovno*/
 * {
     margin: 0;
     padding: 0;
@@ -20,6 +20,9 @@
   a:active {
     color: white;
   }
+
+  /* Deo za navBar  */
+
   #mainNav {
     z-index: 1;
     position: fixed;
@@ -47,15 +50,17 @@
     align-content: center;
   }
 
+  @media (max-width: 768px) {
+    .meni-lista {
+      display: grid;
+      grid-template-columns: auto auto auto auto;
+      font-size: medium;
+    }
+   
+  }
 
-  @media (min-width: 768px){
-    #naslov_index{
-        padding-top: 500px;
-        padding-left: 150px;
-        font-size: 1000%;
-        font-style: bold;
-        position: fixed;
-      }
+ /* Index stranica */
+    
     #index{
     background-image: url("Slike/Indeks.jpg");
     background-attachment: fixed;
@@ -63,10 +68,15 @@
     background-size: cover;
     background-blend-mode: lighten;}
 
-    #naslovi{
-        font-size: 400%;
-        padding-top: 50px;
-        padding-left:550px ;}
+    #text .container{
+      text-align: center;
+      padding-top: 150px;
+      padding-bottom: 150px;
+      font-size: 220px;
+      font-weight: bold;  
+      }
+
+    /*Pozadine i naslovi za ostale stranice*/
 
     #doktori{
         background-image: url("Slike/Doktori.jpg");
@@ -92,6 +102,38 @@
         background-blend-mode: lighten; 
     }
 
-
-
+    #naslovi .container {
+      font-size: 400%;
+      color: black;
+      font-weight: bold;
+      padding-top: 20px;
+      text-align: center;
+      justify-content: center;
     }
+
+  #odabir_akcije_p{
+    font-size: 200%;
+    color: black;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    grid-column-gap: 30px;
+    padding-top: 20px;
+    padding-left: 0px ;
+    padding-right: 0px ;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  #odabir_akcije{
+    font-size: 180%;
+    color: black;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+    grid-column-gap: 20px;
+    padding-left: 0px ;
+    padding-right: 0px ;
+    padding-top: 20px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;}
+    
