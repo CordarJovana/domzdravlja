@@ -52,7 +52,17 @@
 </div>
 
 <!--Deo za prikaz svih pacijenata-->
-<pre id="get_odgovor"></pre>
+<div id="pacijenti_get">
+    <ul id="lista-za-pretragu-pacijenata">
+        <li id="item-lista-za-pretragu-p">
+    <button type="button" id="pretrazi-dugme-pacijente">Pretraži pacijente</button>
+</li>
+<li id="item-lista-za-pretragu-p">
+    <pre id="get_odgovor-pacijenti"></pre>
+</li>
+</ul>
+</div>
+
 
 <!-- Deo za kreiranje novog kartona pacijenta-->
 <div id="pacijenti_post">
@@ -116,7 +126,7 @@
 </html>
 <script>
 
-    var blokovi = ["pacijenti_post","pacijenti_put", "pacijenti_delete"];
+    var blokovi = ["pacijenti_get","pacijenti_post","pacijenti_put", "pacijenti_delete"];
     
     function skloniBlokove(){
         for(const blok of blokovi){
@@ -132,19 +142,20 @@
         switch($("input[name=odabir_akcije]:checked")[0].id){
                 case "prikazi":
                     skloniBlokove();
-                    document.getElementById("get_odgovor").innerHTML="";
+                    document.getElementById("get_odgovor-pacijenti").innerHTML="";
+                    document.getElementById(blokovi[0]).style.display="block";
                     break;
                 case "kreiraj":
                     skloniBlokove();
-                    document.getElementById(blokovi[0]).style.display="block";    
+                    document.getElementById(blokovi[1]).style.display="block";    
                     break;
                 case "izmeni":
                     skloniBlokove();
-                    document.getElementById(blokovi[1]).style.display="block";
+                    document.getElementById(blokovi[2]).style.display="block";
                     break;
                 case "obrisi":
                     skloniBlokove();
-                    document.getElementById(blokovi[2]).style.display="block";
+                    document.getElementById(blokovi[3]).style.display="block";
                     break;
                 default:
                     break;

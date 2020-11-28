@@ -53,8 +53,17 @@
 
 
  <!--Deo za prikaz svih doktora-->
-
+<div id="doktori_get">
+    <ul id="lista-za-pretragu-d">
+        <li id="item-lista-za-pretragu-d">
+    <button type="button" id="pretrazi-d">Pretraži doktore</button>
+</li>
+<li id="item-lista-za-pretragu-d">
     <pre id="get_odgovor"></pre>
+</li>
+</ul>
+</div>
+    
 
 
 <!-- Deo za kreiranje novog profila doktora-->
@@ -140,7 +149,7 @@
 
 <script>
 
-var blokovi = ["doktori_post","doktori_put", "doktori_delete"];
+var blokovi = ["doktori_get","doktori_post","doktori_put", "doktori_delete"];
 
 function skloniBlokove(){
     for(const blok of blokovi){
@@ -157,22 +166,33 @@ function prikaziBlok(){
             case "prikazi":
                 skloniBlokove();
                 document.getElementById("get_odgovor").innerHTML="";
+                document.getElementById(blokovi[0]).style.display="block";
                 break;
             case "kreiraj":
                 skloniBlokove();
-                document.getElementById(blokovi[0]).style.display="block";    
+                document.getElementById(blokovi[1]).style.display="block";    
                 break;
             case "izmeni":
                 skloniBlokove();
-                document.getElementById(blokovi[1]).style.display="block";
+                document.getElementById(blokovi[2]).style.display="block";
                 break;
             case "obrisi":
                 skloniBlokove();
-                document.getElementById(blokovi[2]).style.display="block";
+                document.getElementById(blokovi[3]).style.display="block";
                 break;
             default:
                 break;
         }
            
     }
+
+
+
+
+    function resetHTTP(){
+        skloniBlokove();
+        $("input[name=odabir_akcije]").prop('checked', false);
+    }
+
+    
 </script>

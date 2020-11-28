@@ -154,9 +154,8 @@
       list-style: none;
     }
   
-    #pretraga-pregledi, #get_odgovor-pregledi{
+    #pretraga-pregledi, #get_odgovor-pregledi, #pretrazi-preglede{
       font-size: 25px;
-      justify-content: center;
     }
 
     #pregledi_post{
@@ -179,7 +178,23 @@
       justify-content: center;
     }
     /* Stranica pacijenti*/
-
+    #pacijenti_get{
+      margin: auto;
+    }
+  
+    #lista-za-pretragu-pacijenata{
+      display: grid;
+      grid-template-columns: auto auto auto auto;
+      grid-column-gap: 30px;
+      justify-content: center;
+      align-content: center;
+      list-style: none;
+    }
+  
+    #pretrazi-dugme-pacijente, #get_odgovor-pacijenti{
+      font-size: 25px;
+      justify-content: center;
+    }
 
   #pacijenti_post{
     margin: auto;
@@ -233,6 +248,24 @@
   }
 
   /* Stranica doktori*/
+
+  #doktori_get{
+    margin: auto;
+  }
+
+  #lista-za-pretragu-d{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-column-gap: 30px;
+    justify-content: center;
+    align-content: center;
+    list-style: none;
+  }
+
+  #pretrazi-d, #get_odgovor{
+    font-size: 25px;
+    justify-content: center;
+  }
 
  #doktori_post{
     margin: auto;
