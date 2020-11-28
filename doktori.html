@@ -102,7 +102,7 @@
     <div id="doktori_put">
         <ul id="lista-za-izmenu-d">
         <li id="element-liste-za-izmenu-d">
-        <input type="text" name="ime-pretrazivanje-d" id="ime-pretrazivanje-d" placeholder="Unesite ime i prezime">
+        <input type="text" name="ime-pretrazivanje-d" id="ime-pretrazivanje-d" placeholder="Unesite ID">
     </li>
         <li id="element-liste-za-izmenu-d">
         <input type="text" name="ime-put-d" id="ime-put-d" placeholder="Unesite novo ime">
@@ -134,7 +134,7 @@
     <div id="doktori_delete">
         <ul id="lista-za-brisanje-d">
             <li id="element-liste-za-brisanje-d">
-            <input type="text" name="brisanje-d" id="brisanje-d" placeholder="Unesite ime i prezime">
+            <input type="text" name="brisanje-d" id="brisanje-d" placeholder="Unesite ID">
         </li>
             <li id="element-liste-za-brisanje-d">
             <div id="dugme_za_brisanje-d">
@@ -146,7 +146,7 @@
 </form>
 </body>
 </html>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
 
 var blokovi = ["doktori_get","doktori_post","doktori_put", "doktori_delete"];
@@ -160,6 +160,10 @@ function skloniBlokove(){
 skloniBlokove();
 $("input[name=odabir_akcije]").on("click", prikaziBlok);
 
+    $("#pretrazi-d").on("click", pretraziDoktore);
+    $("#kreiraj-d").on("click", kreirajDoktora);
+    $("#izmena-d").on("click", izmeniDoktora);
+    $("#obrisi-d").on("click", obrisiDoktora);
 
 function prikaziBlok(){
     switch($("input[name=odabir_akcije]:checked")[0].id){
@@ -184,15 +188,52 @@ function prikaziBlok(){
                 break;
         }
            
-    }
+    };
 
 
 
 
-    function resetHTTP(){
+function resetHTTP(){
         skloniBlokove();
         $("input[name=odabir_akcije]").prop('checked', false);
-    }
+    };
 
-    
+
+
+//Verovatno ces morati da menjas posle php urla da dodas nesto
+function pretraziDoktore(){
+    $.getJSON("doktori.php", function(data){
+    document.getElementById("get_odgovor").innerHTML = JSON.stringify(data,null,2);
+})};
+
+function kreirajDoktora(){
+    var values = {
+                 "ime": $("#novo-ime-d").val(),
+                 "prezime":$("#novo-prezime-d").val(),
+                "jmbg":$("#novi-jmbg-d").val(),
+                "kategorija_specijaliste": parseInt($("#doktor_kategorija").val())
+                        };
+
+$.post("doktori.php", JSON.stringify(values),function(data){
+    alert("Odgovor od servera> "+data['poruka']);});
+};
+
+function izmeniDoktora(){
+    var value=parseInt($("#izmena-d").val());
+    var values = {
+                 "ime": $("#novo-ime-d").val(),
+                 "prezime":$("#novo-prezime-d").val(),
+                "jmbg":$("#novi-jmbg-d").val(),
+                "kategorija_specijaliste": parseInt($("#doktor_kategorija").val())
+                        };
+};
+
+
+function obrisiDoktora(){
+    var value= parseInt($("#brisanje-d").val());
+    $.post("doktori.php", { metoda: "obrisi", id: value }, function (data) {
+            })
+};
+
+
 </script>
