@@ -111,6 +111,8 @@
       justify-content: center;
     }
 
+    /* Deo sa radio button-ima*/
+
   #odabir_akcije_p{
     font-size: 200%;
     color: black;
@@ -136,4 +138,151 @@
     text-align: center;
     justify-content: center;
     align-items: center;}
+
+    /* Stranica pregledi */
     
+    #pregledi_get{
+      margin: auto;
+    }
+  
+    .lista-za-pretragu-pregleda{
+      display: grid;
+      grid-template-columns: auto auto;
+      grid-column-gap: 30px;
+      justify-content: center;
+      align-content: center;
+      list-style: none;
+    }
+  
+    #pretraga-pregledi, #get_odgovor-pregledi{
+      font-size: 25px;
+      justify-content: center;
+    }
+
+    #pregledi_post{
+      margin: auto;
+    }
+  
+    .pregledi-post-lista{
+      display: grid;
+      grid-template-rows: auto auto auto auto auto;
+      grid-column-gap: 30px;
+      grid-row-gap: 15px;;
+      justify-content: center;
+      align-content: center;
+      list-style: none;
+    }
+
+  
+    #datum-pregleda-post, #tekst_simptoma, #doktor_odabir_pregledi, #pacijent_odabir_pregledi, #kreiraj_pregledi{
+      font-size: 25px;
+      justify-content: center;
+    }
+    /* Stranica pacijenti*/
+
+
+  #pacijenti_post{
+    margin: auto;
+  }
+
+  #lista-za-kreiranje-p{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-column-gap: 30px;
+    justify-content: center;
+    align-content: center;
+    list-style: none;
+  }
+
+  #novo-ime-p, #novo-prezime-p, #novi-jmbg-p, #dugme-kreiraj-p{
+    font-size: 25px;
+  }
+
+  #pacijenti_put{
+    margin: auto;
+  }
+
+  #lista-za-izmenu-p{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    grid-column-gap: 30px;
+    justify-content: center;
+    align-content: center;
+    list-style: none;
+  }
+
+  #ime-pretrazivanje-p, #ime-put-p, #prezime-put-p, #jmbg-put-p, #dugme-za-izmenu-p{
+    font-size: 20px;
+  }
+
+  #pacijenti_delete{
+    margin: auto;
+  }
+
+  #lista-za-brisanje-p{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 30px;
+    justify-content: center;
+    align-content: center;
+    list-style: none;
+  }
+
+  #brisanje-p, #dugme-za-brisanje-p{
+    font-size: 25px;
+  }
+
+  /* Stranica doktori*/
+
+ #doktori_post{
+    margin: auto;
+  }
+
+  #lista-za-kreiranje-d{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    grid-column-gap: 30px;
+    justify-content: center;
+    align-content: center;
+    list-style: none;
+  }
+
+  #novo-ime-d, #novo-prezime-d, #novi-jmbg-d, #doktor_kategorija, #kreiraj-d{
+    font-size: 25px;
+  }
+
+  #doktori_put{
+    margin: auto;
+  }
+
+  #lista-za-izmenu-d{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    grid-column-gap: 30px;
+    justify-content: center;
+    align-content: center;
+    list-style: none;
+  }
+
+  #ime-pretrazivanje-d, #ime-put-d, #prezime-put-d, #jmbg-put-d, #kategorija-odabir-put-d, #izmena-d{
+    font-size: 18px;
+  }
+
+  #doktori_delete{
+    margin: auto;
+  }
+
+  #lista-za-brisanje-d{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 30px;
+    justify-content: center;
+    align-content: center;
+    list-style: none;
+  }
+
+  #brisanje-d, #obrisi-d{
+    font-size: 25px;
+  }
+ 
+  

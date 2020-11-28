@@ -59,50 +59,80 @@
 
 <!-- Deo za kreiranje novog profila doktora-->
     <div id="doktori_post">
-        <input type="text" name="ime" id="ime" placeholder="Unesite ime">
-        <input type="text" name="prezime" id="prezime" placeholder="Unesite prezime">
-        <input type="text" name="jmbg" id="jmbg" placeholder="Unesite JMBG">
-    <!--ovaj deo sigurno treba popraviti pa pogledati vežbe 3-->
-        <label for="doktor_kategorija">Specijalista:</label>
+        <ul id="lista-za-kreiranje-d">
+        <li id="element-liste-za-kreiranje-d">
+        <input type="text" name="novo-ime-d" id="novo-ime-d" placeholder="Unesite ime">
+        </li>
+        <li id="element-liste-za-kreiranje-d">
+        <input type="text" name="novo-prezime-d" id="novo-prezime-d" placeholder="Unesite prezime">
+    </li>
+        <li id="element-liste-za-kreiranje-d">
+        <input type="text" name="novi-jmbg-d" id="novi-jmbg-d" placeholder="Unesite JMBG">
+    </li>
+        <!--ovaj deo sigurno treba popraviti pa pogledati vežbe 3-->
+    <li id="element-liste-za-kreiranje-d">
+         <label for="doktor_kategorija" id="doktor_kategorija">Specijalista:</label>
         <select name="doktor_kategorija" id="doktor_kategorija">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
         </select>
-        
-        <div id="dugme_za_kreiranje">
-            <button type="button" id="kreiraj">Kreiraj</button>
+    </li>
+        <li id="element-liste-za-kreiranje-d">
+        <div id="dugme_za_kreiranje-d">
+            <button type="button" id="kreiraj-d">Kreiraj</button>
         </div>
+    </li>
+
+    </ul>
     </div>
     
 
     <!-- Deo za izmenu profila doktora-->
     <div id="doktori_put">
-        <input type="text" name="ime_pretrazivanje" id="ime_pretrazivanje" placeholder="Unesite ime i prezime doktora">
-        <input type="text" name="ime_put" placeholder="Unesite novo ime">
-        <input type="text" name="prezime_put" placeholder="Unesite novo prezime">
-        <input type="text" name="jmbg_put" placeholder="Unesite novi JMBG">
-
-        <label for="kategorija_odabir_put">Specijalista:</label>
-        <select name="kategorija_odabir_put" id="kategorija_odabir_put">
+        <ul id="lista-za-izmenu-d">
+        <li id="element-liste-za-izmenu-d">
+        <input type="text" name="ime-pretrazivanje-d" id="ime-pretrazivanje-d" placeholder="Unesite ime i prezime">
+    </li>
+        <li id="element-liste-za-izmenu-d">
+        <input type="text" name="ime-put-d" id="ime-put-d" placeholder="Unesite novo ime">
+    </li>
+        <li id="element-liste-za-izmenu-d">
+        <input type="text" name="prezime-put-d" id="prezime-put-d" placeholder="Unesite novo prezime">
+    </li>
+        <li id="element-liste-za-izmenu-d">
+        <input type="text" name="jmbg-put-d" id="jmbg-put-d" placeholder="Unesite novi JMBG">
+    </li>
+        <li id="element-liste-za-izmenu-d">   
+        <label for="kategorija-odabir-put-d" id="kategorija-odabir-put-d">Specijalista:</label>
+        <select name="kategorija-odabir-put-d" id="kategorija-odabir-put-d">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
         </select>
-        
-        <div id="dugme_za_izmenu">
-            <button type="button" id="izmena">Izmeni</button>
+    </li>
+        <li id="element-liste-za-izmenu-d">
+        <div id="dugme_za_izmenu-d">
+            <button type="button" id="izmena-d">Izmeni</button>
         </div>
+        </li>
+    </ul>
     </div>
 
     <!-- Deo za brisanje profila doktora-->
     <div id="doktori_delete">
-        <input type="text" name="brisanje" id="brisanje" placeholder="Unesite ime i prezime doktora koga želite da obrišete">
-        <div id="dugme_za_brisanje">
-            <button type="button" id="obrisi">Obriši</button>
+        <ul id="lista-za-brisanje-d">
+            <li id="element-liste-za-brisanje-d">
+            <input type="text" name="brisanje-d" id="brisanje-d" placeholder="Unesite ime i prezime">
+        </li>
+            <li id="element-liste-za-brisanje-d">
+            <div id="dugme_za_brisanje-d">
+            <button type="button" id="obrisi-d">Obriši</button>
         </div>
+    </li>
+    </ul>
     </div>
 </form>
 </body>

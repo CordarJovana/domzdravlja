@@ -46,47 +46,71 @@
             <label for="radio_kreiraj">Zakaži novi pregled</label>
         </div>
     <!--Deo za prikaz svih pregeda-->
-
+<div id="pregledi_get">
+    <ul class="lista-za-pretragu-pregleda">
+        <li class="item-pretraga-pregledi">
     <div id="search_prema_datumima">
-        <input type="datetime" name="pretraga" id="pretraga" placeholder="Unesite datum kako biste suzili pretragu">
+        <input type="datetime" name="pretraga-pregledi" id="pretraga-pregledi" placeholder="Unesite datum pregleda">
 
     </div>
-   <pre id="get_odgovor"></pre>
-
+</li>
+    <li class="item-pretraga-pregledi">
+   <pre id="get_odgovor-pregledi"></pre>
+</li>
+</ul>
+</div>
 
 <!--Deo za unos novog pregleda-->
-<div id="pacijent_post">
-    <input type="datetime-local" id="datum_pregleda" name="datum_pregleda">
+<div id="pregledi_post">
+    <ul class="pregledi-post-lista">
+        <li class="pregledi-item-post-">
+    <input type="datetime-local" id="datum-pregleda-post" name="datum-pregleda-post" placeholder="Unesite datum pregleda">
+</li>
+    <li class="pregledi-item-post">
     <br>
     <textarea name="tekst_simptoma" id="tekst_simptoma" cols="30" rows="10" placeholder="Unesite simptome pacijenta"></textarea>
     <br>
+</li>
 <!--ovaj deo sigurno treba popraviti pa pogledati vežbe 3-->
-    <label for="doktor_odabir">Doktori:</label>
-    <select name="doktor_odabir" id="doktor_odabir">
+<div id="proba">
+<li class="pregledi-item-post">
+    <div class="biranje_doktora">
+    <label for="doktor_odabir" id="doktor_odabir_pregledi">Doktori:</label>
+    <select name="doktor_odabir" id="doktor_odabir_pregledi">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
         <option value="4">4</option>
         <option value="5">5</option>
     </select>
-    <label for="pacijent_odabir">Pacijent:</label>
-    <select name="pacijent_odabir" id="pacjent_odabir">
+</div>
+</li>
+    <li class="pregledi-item-post">
+        <div id="biranje_pacijenta">
+    <label for="pacijent_odabir" id="pacijent_odabir_pregledi">Pacijent:</label>
+    <select name="pacijent_odabir" id="pacijent_odabir_pregledi">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
         <option value="4">4</option>
         <option value="5">5</option>
     </select>
-    <div id="dugme_za_kreiranje">
-        <button type="button" id="kreiraj">Zakaži pregled</button>
+</div>
+</li>
+</div>
+<li class="pregledi-item-post">
+    <div id="kreiraj_dugme_pregledi">
+        <button type="button" id="kreiraj_pregledi">Zakaži pregled</button>
     </div>
+</li>
+</ul>
 </div>
 </form>
 
 </body>
 </html>
 <script>
-    var blokovi = ["search_prema_datumima","pacijent_post"];
+    var blokovi = ["pregledi_get","pregledi_post"];
 
     function skloniBlokove(){
     for(const blok of blokovi){
@@ -102,7 +126,7 @@ function prikaziBlok(){
     switch($("input[name=odabir_akcije]:checked")[0].id){
             case "prikazi":
                 skloniBlokove();
-                document.getElementById("get_odgovor").innerHTML="";
+                document.getElementById("get_odgovor-pregledi").innerHTML="";
                 document.getElementById(blokovi[0]).style.display="block";
                 break;
             case "kreiraj":

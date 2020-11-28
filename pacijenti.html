@@ -56,33 +56,59 @@
 
 <!-- Deo za kreiranje novog kartona pacijenta-->
 <div id="pacijenti_post">
-    <input type="text" name="ime" id="ime" placeholder="Unesite ime">
-    <input type="text" name="prezime" id="prezime" placeholder="Unesite prezime">
-    <input type="text" name="jmbg" id="jmbg" placeholder="Unesite JMBG">
-    
-    <div id="dugme_za_kreiranje">
-        <button type="button" id="kreiraj">Kreiraj</button>
-    </div>
+    <ul id="lista-za-kreiranje-p">
+    <li id="element-liste-za-kreiranje-p">
+    <input type="text" name="novo-ime-p" id="novo-ime-p" placeholder="Unesite ime">
+    </li>
+    <li id="element-liste-za-kreiranje-p">
+    <input type="text" name="novo-prezime-p" id="novo-prezime-p" placeholder="Unesite prezime">
+    </li>
+    <li id="element-liste-za-kreiranje-p">
+    <input type="text" name="novi-jmbg-p" id="novi-jmbg-p" placeholder="Unesite JMBG">
+    </li>
+    <li id="element-liste-za-kreiranje-p">
+        <button type="button" id="dugme-kreiraj-p">Kreiraj</button>
+    </li>
+</ul>
 </div>
 
  <!-- Deo za izmenu kartona pacijenata-->
 <div id="pacijenti_put">
-    <input type="text" name="ime_pretrazivanje" id="ime_pretrazivanje" placeholder="Unesite ime i prezime pacijenta">
-    <input type="text" name="ime_put" placeholder="Unesite novo ime">
-    <input type="text" name="prezime_put" placeholder="Unesite novo prezime">
-    <input type="text" name="jmbg_put" placeholder="Unesite novi JMBG">
+    <ul id="lista-za-izmenu-p">
+    <li id="element-liste-za-izmenu-p">
+    <input type="text" name="ime-pretrazivanje-p" id="ime-pretrazivanje-p" placeholder="Unesite ime i prezime">
+</li>
+    <li id="element-liste-za-izmenu-p">
+    <input type="text" name="ime-put-p" id="ime-put-p" placeholder="Unesite novo ime">
+</li>
+    <li id="element-liste-za-izmenu-p">
+    <input type="text" name="prezime-put-p" id="prezime-put-p" placeholder="Unesite novo prezime">
     
+</li>
+<li id="element-liste-za-izmenu-p">
+    <input type="text" name="jmbg-put-p" id="jmbg-put-p" placeholder="Unesite novi JMBG">
+</li>
+    <li id="element-liste-za-izmenu-p">
     <div id="dugme_za_izmenu">
-        <button type="button" id="izmena">Izmeni</button>
+        <button type="button" id="dugme-za-izmenu-p">Izmeni</button>
     </div>
+</li>
+</ul>
 </div>
+
 
 <!-- Deo za brisanje kartona pacijenta-->
 <div id="pacijenti_delete">
-        <input type="text" name="brisanje" id="brisanje" placeholder="Unesite ime i prezime pacijenta čiji karton želite da obrišete">
+    <ul id="lista-za-brisanje-p">
+        <li id="element-lise-za-brisanje">
+        <input type="text" name="brisanje" id="brisanje-p" placeholder="Unesite ime i prezime">
+    </li>
+    <li id="element-lise-za-brisanje">
         <div id="dugme_za_brisanje">
-        <button type="button" id="obrisi">Obriši</button>
+        <button type="button" id="dugme-za-brisanje-p">Obriši</button>
     </div>
+</li>
+</ul> 
 </div>
 
 </form>
