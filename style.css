@@ -1,0 +1,97 @@
+
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    padding-top: 80px;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  a:hover,
+  a:active {
+    color: white;
+  }
+  #mainNav {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    height: 80px;
+    right: 0;
+    left: 0;
+  }
+  
+  .meni-lista {
+    height: 80px;
+    display: grid;
+    grid-template-columns: 150px 150px 250px 150px;
+    list-style-type: none;
+    background-color: rgb(59, 207, 212);
+    padding-right: 0;
+    font-size: x-large;
+    justify-content: right;
+    align-content: center;
+  }
+  
+  .meni-item {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+  }
+
+
+  @media (min-width: 768px){
+    #naslov_index{
+        padding-top: 500px;
+        padding-left: 150px;
+        font-size: 1000%;
+        font-style: bold;
+        position: fixed;
+      }
+    #index{
+    background-image: url("Slike/Indeks.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: lighten;}
+
+    #naslovi{
+        font-size: 400%;
+        padding-top: 50px;
+        padding-left:550px ;}
+
+    #doktori{
+        background-image: url("Slike/Doktori.jpg");
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-blend-mode: lighten; 
+    }
+
+    #pacijenti{
+        background-image: url("Slike/pacijenti.jpg");
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-blend-mode: lighten; 
+    }
+    
+    #pregledi{
+        background-image: url("Slike/1.jpg");
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-blend-mode: lighten; 
+    }
+
+
+
+    }
