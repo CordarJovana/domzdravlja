@@ -198,11 +198,11 @@ function resetHTTP(){
         $("input[name=odabir_akcije]").prop('checked', false);
     };
 
-
+//TREBA DODATI ONAJ DEO ZA SPECIJALISTE ALI KASNIJE BUKVALNO SVE ISTO KAO VRATI SVE 
 
 //Verovatno ces morati da menjas posle php urla da dodas nesto
 function pretraziDoktore(){
-    $.getJSON("doktori.php", function(data){
+    $.getJSON("doktori.php", { metoda: "vrati sve" }, function(data){
     document.getElementById("get_odgovor").innerHTML = JSON.stringify(data,null,2);
 })};
 
@@ -211,10 +211,10 @@ function kreirajDoktora(){
                  "ime": $("#novo-ime-d").val(),
                  "prezime":$("#novo-prezime-d").val(),
                 "jmbg":$("#novi-jmbg-d").val(),
-                "kategorija_specijaliste": parseInt($("#doktor_kategorija").val())
+                "id_kategorije": parseInt($("#doktor_kategorija").val())
                         };
 
-$.post("doktori.php", JSON.stringify(values),function(data){
+$.post("doktori.php",{ metoda: "dodaj" }, JSON.stringify(values),function(data){
     alert("Odgovor od servera> "+data['poruka']);});
 };
 
@@ -224,8 +224,10 @@ function izmeniDoktora(){
                  "ime": $("#novo-ime-d").val(),
                  "prezime":$("#novo-prezime-d").val(),
                 "jmbg":$("#novi-jmbg-d").val(),
-                "kategorija_specijaliste": parseInt($("#doktor_kategorija").val())
+                "id_kategorije": parseInt($("#doktor_kategorija").val())
                         };
+    $.post("doktori.php", { metoda: "izmeni", id: value, ime:ime, prezime:prezime, jmbg:jmbg, id_kategorije:id_kategorije}, function (data) {
+            })
 };
 
 

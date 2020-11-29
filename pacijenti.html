@@ -111,7 +111,7 @@
 <div id="pacijenti_delete">
     <ul id="lista-za-brisanje-p">
         <li id="element-lise-za-brisanje">
-        <input type="text" name="brisanje" id="brisanje-p" placeholder="Unesite ime i prezime">
+        <input type="text" name="brisanje" id="brisanje-p" placeholder="Unesite ID">
     </li>
     <li id="element-lise-za-brisanje">
         <div id="dugme_za_brisanje">
@@ -136,9 +136,12 @@
     
     skloniBlokove();
     $("input[name=odabir_akcije]").on("click", prikaziBlok);
+    $("#pretrazi-dugme-pacijente").on("click", pretraziPacijente);
+    $("#dugme-kreiraj-p").on("click", kreirajPacijenta);
+    $("#dugme-za-izmenu-p").on("click", izmeniPacijenta);
+    $("#dugme-za-brisanje-p").on("click", obrisiPacijenta);
     
-    
-    function prikaziBlok(){
+ function prikaziBlok(){
         switch($("input[name=odabir_akcije]:checked")[0].id){
                 case "prikazi":
                     skloniBlokove();
@@ -162,4 +165,48 @@
             }
                
         }
+
+
+
+  //Ne znam ni da li mi treba ova funkcija ali neka za pocetak ostane ovde  
+        function resetHTTP(){
+        skloniBlokove();
+        $("input[name=odabir_akcije]").prop('checked', false);
+    };
+
+
+
+//Verovatno ces morati da menjas posle php urla da dodas nesto
+function pretraziPacijente(){
+    $.getJSON("pacijenti.php",{ metoda: "vrati sve" }, function(data){
+    document.getElementById("get_odgovor-pacijenti").innerHTML = JSON.stringify(data,null,2);
+})};
+
+function kreirajPacijenta(){
+    var values = {
+                 "ime": $("#novo-ime-p").val(),
+                 "prezime":$("#novo-prezime-p").val(),
+                "jmbg":$("#novi-jmbg-p").val()}
+
+$.post("pacijenti.php", { metoda: "dodaj" }, JSON.stringify(values),function(data){
+    alert("Odgovor od servera> "+data['poruka']);});
+};
+
+//Obratiti paznju da li je ovo val() dobro jer postoji i text() kod knjiga.php
+function izmeniPacijenta(){
+    var value=parseInt($("#ime-pretrazivanje-p").val());
+    var values = {
+                 "ime": $("#novo-ime-d").val(),
+                 "prezime":$("#novo-prezime-d").val(),
+                "jmbg":$("#novi-jmbg-d").val()};
+$.post("pacijenti.php", { metoda: "izmeni", id: value, ime:ime, prezime:prezime, jmbg:jmbg}, function (data) {
+            })
+};
+
+
+function obrisiPacijenta(){
+    var value= parseInt($("#brisanje-p").val());
+    $.post("pacijenti.php", { metoda: "obrisi", id: value }, function (data) {
+            })
+};
     </script>

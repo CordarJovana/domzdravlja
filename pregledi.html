@@ -125,7 +125,8 @@
 
 skloniBlokove();
 $("input[name=odabir_akcije]").on("click", prikaziBlok);
-
+$("#pretrazi-d").on("click", pretraziPregled);
+$("#kreiraj-d").on("click", kreirajPregled);
 
 function prikaziBlok(){
     switch($("input[name=odabir_akcije]:checked")[0].id){
@@ -144,4 +145,33 @@ function prikaziBlok(){
         }
            
     }
+
+    function resetHTTP(){
+        skloniBlokove();
+        $("input[name=odabir_akcije]").prop('checked', false);
+    };
+
+//TREBA DODATI ONAJ DEO ZA IZBOR DOKTORA I PACIJENTA ALI KASNIJE BUKVALNO SVE ISTO KAO VRATI SVE 
+
+//Verovatno ces morati da menjas posle php urla da dodas nesto
+function pretraziPregled(){
+    $.getJSON("pregledi.php", { metoda: "vrati sve" }, function(data){
+    document.getElementById("get_odgovor-pregledi").innerHTML = JSON.stringify(data,null,2);
+})};
+
+function kreirajPregled(){
+    var values = {
+                 "datum": $("#datum-pregleda-post").val(),
+                 "simptomi":$("#tekst_simptoma").val(),
+                "id_pacijenta":parseInt($("#pacijent_odabir_pregledi").val()),
+                "id_doktora": parseInt($("#doktor_odabir_pregledi").val())
+                        };
+
+$.post("pregledi.php",{ metoda: "dodaj" }, JSON.stringify(values),function(data){
+    alert("Odgovor od servera> "+data['poruka']);});
+};
+
+
+
+
 </script>
