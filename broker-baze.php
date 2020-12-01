@@ -4,22 +4,21 @@ class Broker{
     private $hostname="localhost";
     private $username="root";
     private $password="";
-    private $rezultati;
-    private $dbname;
+    private $dbname="domzdravlja";
     private $dblink;
-    private $affected;
+    private $rezultat;
     private static $broker;
 
     //Konstruktror
     private function __construct(){
-        $this->dblink = new mysqli($this->hostname=$hostname, $this->username=$username, $this->password=$password, $this->dbname=$dbname);
+        $this->dblink = new mysqli($this->hostname, $this->username, $this->password, $this->dbname);
         if($this->dblink->connect_errno)
         exit();
         $this->dblink->set_charset("utf8");
     }
 
 
-    public function getRezultati(){
+    public function getRezultat(){
         return $this->rezultat;
     }
     public function getMysqli(){
@@ -33,7 +32,7 @@ class Broker{
     }
     //Proveriti posle ovu funkciju 
     private function izvrsiUpit($upit){
-        $this->rezultat=$this->dblink>query($upit);
+        $this->rezultat=$this->dblink->query($upit);
     }
 
 
