@@ -44,8 +44,9 @@ class Broker{
         $this->izvrsiUpit("select id as 'ID', ime as 'Ime', prezime as 'Prezime', jmbg as 'JMBG' from pacijenti");
     }
     public function vratiPregled($datum){
-        $this->izvrsiUpit("select pregled.datum as 'Datum', pregled.simptomi as 'Simptomi', concat(d.ime, ' ', d.prezime) as 'Doktor', concat(p.ime, ' ', p.prezime) as 'Pacijent' from pregledi pregledi inner join doktori d on (pregledi.iddoktora=d.id) inner join p on(pregledi.idpacijenta=p.id) where predgled.datum=".$datum);
+        $this->izvrsiUpit("select pregled.datum as 'Datum', pregled.simptomi as 'Simptomi', concat(d.ime, ' ', d.prezime) as 'Doktor', concat(p.ime, ' ', p.prezime) as 'Pacijent' from pregledi pregled left join doktori d on (pregled.iddoktora=d.id) left join pacijenti p on(pregled.idpacijenta=p.id) where pregled.datum=".$datum);
     }
+
     public function vratiSpecijaliste(){
         $this->izvrsiUpit("select * from kategorijedoktora");
     }

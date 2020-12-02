@@ -7,8 +7,8 @@ $broker=Broker::getBroker();
 
 if(isset($_GET["metoda"])){
     if($_GET["metoda"]=="vrati sve"){
-        $datum=$_POST["datum"];
-        $broker->vratiPregled($datum);
+        
+        $broker->vratiPregled($_GET["datum"]);
         posalji($broker);
     }
     if($_GET["metoda"]=="vrati doktore"){
