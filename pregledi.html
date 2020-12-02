@@ -125,8 +125,8 @@
 
 skloniBlokove();
 $("input[name=odabir_akcije]").on("click", prikaziBlok);
-$("#pretrazi-d").on("click", pretraziPregled);
-$("#kreiraj-d").on("click", kreirajPregled);
+$("#pretrazi-preglede").on("click", pretraziPregled);
+$("#kreiraj_pregledi").on("click", kreirajPregled);
 
 function prikaziBlok(){
     switch($("input[name=odabir_akcije]:checked")[0].id){
@@ -150,7 +150,8 @@ function prikaziBlok(){
 
 //Verovatno ces morati da menjas posle php urla da dodas nesto
 function pretraziPregled(){
-    $.getJSON("pregledi.php", { metoda: "vrati sve" }, function(data){
+    var datum=$("#pretraga-pregledi").val();
+    $.getJSON("pregledi.php", {metoda: "vrati sve", datum: datum}, function(data){
     document.getElementById("get_odgovor-pregledi").innerHTML = JSON.stringify(data,null,2);
 })};
 

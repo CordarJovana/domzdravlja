@@ -192,18 +192,11 @@ function prikaziBlok(){
     };
 
 
-
-
-function resetHTTP(){
-        skloniBlokove();
-        $("input[name=odabir_akcije]").prop('checked', false);
-    };
-
 //TREBA DODATI ONAJ DEO ZA SPECIJALISTE ALI KASNIJE BUKVALNO SVE ISTO KAO VRATI SVE 
 
-//Verovatno ces morati da menjas posle php urla da dodas nesto
+
 function pretraziDoktore(){
-    $.getJSON("doktori.php", { metoda: "vrati sve" }, function(data){
+    $.getJSON("doktori.php", {metoda: "vrati sve"}, function(data){
     document.getElementById("get_odgovor").innerHTML = JSON.stringify(data,null,2);
 })};
 

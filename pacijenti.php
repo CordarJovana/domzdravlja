@@ -7,7 +7,7 @@ $broker=Broker::getBroker();
 //Mozda moze da se obrise prvi if videti posle
 if(isset($_GET["metoda"])){
     if($_GET["metoda"]=="vrati sve"){
-        $broker->vratiSvePacijente;
+        $broker->vratiSvePacijente();
         posalji($broker);
     }
 }
